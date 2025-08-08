@@ -1,7 +1,7 @@
 import unittest
 import boto3
 from tests.integration.data import *
-from application.lambda_handler import lambda_handler
+from lambda_handler import lambda_handler
 from datetime import datetime, timedelta
 from tests.integration.Helper_Methods import HelperMethods
 
