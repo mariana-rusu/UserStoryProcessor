@@ -155,7 +155,7 @@ dmypy.json
 cython_debug/
 
 **/.DS_Store
-*/__pycache__/
+**/__pycache__/
 *.pyc
 
 # PyCharm
