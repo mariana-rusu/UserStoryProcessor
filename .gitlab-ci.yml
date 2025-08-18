@@ -10,22 +10,18 @@ build-job:              # This job runs in the build stage, which runs first.
   script:
     - echo "Setup the environment..."
     - python3.12 -V
-    - ls -a
     - python3.12 -m venv tmp/venv
-    - ls -a
     - source tmp/venv/bin/activate
     - pip install -r requirements.txt
-    - python -m unittest tests/unittest/test_put_item_method.py
-
 
 
 unittest-job:           # This job runs in the test stage.
   stage: test           # It only starts when the job in the build stage completes successfully.
   script:
     - echo "This job tests something"
-    - python3.12 -V
-    - ls -a
+    - python3.12 -m venv tmp/venv
     - source tmp/venv/bin/activate
+    - pip install -r requirements.txt
     - python3.12 -m unittest tests/unittest/test_put_item_method.py
 
 
@@ -33,6 +29,10 @@ integration-test-job:   # This job also runs in the test stage.
   stage: test           # It can run at the same time as unit-test-job (in parallel).
   script:
     - echo "This job tests something"
+    - python3.12 -m venv tmp/venv
+    - source tmp/venv/bin/activate
+    - pip install -r requirements.txt
+    - python3.12 -m unittest tests/integration/test_put_item_method.py
 
 build-artifact-job:     # This job runs in the build-artifact stage.
   stage: build-artifact # It only runs when *both* jobs in the test stage complete successfully.
