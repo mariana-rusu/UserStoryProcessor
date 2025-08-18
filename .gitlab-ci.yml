@@ -8,17 +8,23 @@ stages:                 # List of stages for jobs, and their order of execution
 build-job:              # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - echo "Compiling the code..."
+    - echo "Setup the environment..."
     - python3.12 -V
-    - pwd
-    - ls -a
-    - which pip
-    - echo "Compile complete."
+    - python3.12 -m venv tmp/venv
+    - source tmp/venv/bin/activate
+    - pip install -r requirements.txt
+    - echo "Compiling the code..."
+    - python -m py_compile src/* tests/*
+
 
 unittest-job:           # This job runs in the test stage.
   stage: test           # It only starts when the job in the build stage completes successfully.
   script:
     - echo "This job tests something"
+    - ls -a
+    - source tmp/venv/bin/activate
+    - python -m pytest tests/*
+
 
 integration-test-job:   # This job also runs in the test stage.
   stage: test           # It can run at the same time as unit-test-job (in parallel).
