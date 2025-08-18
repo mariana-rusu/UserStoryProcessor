@@ -23,6 +23,7 @@ unittest-job:           # This job runs in the test stage.
     - echo "This job tests something"
     - python3.12 -V
     - ls -a
+    - source tmp/venv/bin/activate
     - python3.12 -m unittest tests/unittest/test_put_item_method.py
 
 
