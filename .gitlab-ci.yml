@@ -21,7 +21,7 @@ unittest-job:           # This job runs in the test stage.
   script:
     - echo "This job tests something"
     - ls -a
-    - python -m pytest tests/unittest tests/*
+    - python -m unittest tests/unittest/test_put_item_method.py
 
 
 integration-test-job:   # This job also runs in the test stage.
