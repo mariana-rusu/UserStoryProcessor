@@ -10,7 +10,9 @@ build-job:              # This job runs in the build stage, which runs first.
   script:
     - echo "Setup the environment..."
     - python3.12 -V
+    - ls -a
     - python3.12 -m venv tmp/venv
+    - ls -a
     - source tmp/venv/bin/activate
     - pip install -r requirements.txt
     - python -m unittest tests/unittest/test_put_item_method.py
