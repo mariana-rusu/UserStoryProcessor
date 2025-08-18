@@ -21,8 +21,7 @@ unittest-job:           # This job runs in the test stage.
   script:
     - echo "This job tests something"
     - ls -a
-    - source tmp/venv/bin/activate
-    - python -m pytest tests/*
+    - python -m pytest tests/unittest tests/*
 
 
 integration-test-job:   # This job also runs in the test stage.
