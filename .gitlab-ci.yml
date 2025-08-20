@@ -33,6 +33,8 @@ build-artifact-job:     # This job runs in the build-artifact stage.
     - deactivate
     - ls -a
     - cd /builds/personal-projects841140/user-stories-processor/tmp/venv/lib/python3.12/site-packages
+    - apt-get update -y
+    - apt-get install -y zip
     - zip -r ../../../../../my_deployment_package.zip .
     - cd ../../../../../
     - zip -ur my_deployment_package.zip application
