@@ -31,7 +31,6 @@ build-artifact-job:     # This job runs in the build-artifact stage.
     - source tmp/venv/bin/activate
     - pip install -r requirements.txt
     - deactivate
-    - pip show boto3
     - ls -a
     - cd /builds/personal-projects841140/user-stories-processor/tmp/venv/lib/python3.12/site-packages
     - zip -r ../../../../../my_deployment_package.zip .
