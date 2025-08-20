@@ -27,3 +27,7 @@ build-artifact-job:     # This job runs in the build-artifact stage.
   stage: build-artifact # It only runs when *both* jobs in the test stage complete successfully.
   script:
     - echo "archive lambda_function"
+    - python3.12 -m venv tmp/venv
+    - source tmp/venv/bin/activate
+    - pip install -r requirements.txt
+    - ls -a
