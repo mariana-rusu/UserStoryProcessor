@@ -30,4 +30,5 @@ build-artifact-job:     # This job runs in the build-artifact stage.
     - python3.12 -m venv tmp/venv
     - source tmp/venv/bin/activate
     - pip install -r requirements.txt
+    - pip show boto3
     - ls -a
