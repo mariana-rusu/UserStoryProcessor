@@ -26,7 +26,6 @@ unittest-job:           # This job runs in the test stage.
 build-artifact-job:     # This job runs in the build-artifact stage.
   stage: build-artifact # It only runs when *both* jobs in the test stage complete successfully.
   before_script:
-    - apt-get update -y
     - apt-get install -y zip
   script:
     - echo "archive lambda_function"
