@@ -1,4 +1,4 @@
-image: python:3.9-slim-buster
+image: python:3.9-alpine
 
 stages:                 # List of stages for jobs, and their order of execution
   - build
@@ -26,8 +26,7 @@ unittest-job:           # This job runs in the test stage.
 build-artifact-job:     # This job runs in the build-artifact stage.
   stage: build-artifact # It only runs when *both* jobs in the test stage complete successfully.
   before_script:
-    - apt-get update -y # Update package lists
-    - apt-get install -y zip unzip # Install zip and unzip utilities
+    - apk add --update zip
   script:
     - echo "archive lambda_function"
     - python3.9 -m venv tmp/venv
