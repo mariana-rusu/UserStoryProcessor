@@ -44,3 +44,6 @@ build-artifact-job:     # This job runs in the build-artifact stage.
     - zip -ur my_deployment_package.zip lambda_function.py
     - zip -ur my_deployment_package.zip requirements.txt
     - ls -a
+  artifacts:
+    paths:
+    - my_deployment_package.zip
